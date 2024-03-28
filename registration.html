@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestration page</title>
+    <style>
+        fieldset{
+        width: 500px;
+        background-color: aqua;
+
+        }
+        table tr td{
+            padding-top: 6px;
+            padding-right: 6px;
+            padding-left: 6px;
+            padding-bottom: 6px;
+        }
+        body{
+            background-color: red;
+        }
+</style>
+<script>
+    function validate(){
+        let fn=frm.fname.value;
+            for(let x in fn){
+                let ch=fn.charCOdeAt(x);
+                if(ch<65||ch>90 && ch<97||ch>122){
+                    alert("Invalid First Name");
+                    return false;
+
+                }
+            }
+            let fn1=frm.lname.value;
+            for(let x in fn1){
+                let ch=fn1.charCOdeAt(x);
+                if(ch<65||ch>90 && ch<97||ch>122){
+                    alert("Invalid Last Name");
+                    return false;
+
+                }
+            }
+            let phn=frm.phone.value;
+            let phn1=phn.length;
+            if(phn1!==10){
+                alert("Phone Number Should Be Exactly 10 digit")
+                return false;
+            }
+            let reg="@";
+            let mail1=frn.mail.value;
+            if(reg.test(mail1)){
+                alert("Invalid Name")
+                return false;
+
+            }
+            let pwd1=frn.password.value;
+            let pwd2=pwd1.length;
+            if(pwd2>8){
+                alert("Password Should Not Exceed 8digits")
+                return false;
+            }
+            return true;
+    }
+</script>
+</head>
+<body>
+    <center>
+        <h2>Registration Form</h2>
+        <form name="frm" method="post" action="success.html" onsubmit="return validate()">
+            
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>First Name:</td>
+                        <td><input type="text" name="fname" value=""required/></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name:</td>
+                        <td><input type="text" name="lname" value=""required/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number:</td>
+                        <td><input type="number" name="phone" value=""required/></td>
+                    </tr>
+                    <tr>
+                        <td>Mail ID:</td>
+                        <td><input type="email" name="mail" value=""required/></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>Male <input type="radio"name="gender" value="male"/></td>
+                        <td>Female <input type="radio"name="gender" value="female"/></td>
+                    </tr>
+                    <tr>
+                        <td>DOB</td><td><input type="date" name="dob" required/></td>
+                    </tr>
+                    <tr>
+                        <td>User Name</td><td><input type="text" name="uname" value="" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td><td><input type="password" name="password" value="" required/></td>
+                    </tr>
+                    <tr>
+                        <td>Age</td><td><input type="number" name="age" required/></td>
+                    </tr>
+                </table>
+                <input type="submit" name="submit" value="Registration"/>
+            </fieldset>
+
+        </form>
+    </center>
+</body>
+</html>
